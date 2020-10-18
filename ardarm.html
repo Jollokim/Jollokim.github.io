@@ -1,0 +1,133 @@
+<!DOCTYPE HTML>
+<!--
+	Hielo by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>Hielo by TEMPLATED</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="subpage">
+
+		<!-- Header -->
+			<header id="header">
+				<div class="logo"><a href="index.html">Hielo <span>by TEMPLATED</span></a></div>
+				<a href="#menu">Menu</a>
+			</header>
+
+		<!-- Nav -->
+        <nav id="menu">
+            <ul class="links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="me.html">Me</a></li>
+                <li><a href="digifab_projects.html">Digifab Projects</a></li>
+            </ul>
+        </nav>
+
+		<!-- One -->
+			<section id="One" class="wrapper style3">
+				<div class="inner">
+					<header class="align-center">
+						<p>Arduino project</p>
+						<h2>Ardarm</h2>
+					</header>
+				</div>
+			</section>
+
+		<!-- Two -->
+			<section id="two" class="wrapper style2">
+				<div class="inner">
+					<div class="box">
+						<div class="content">
+							<header class="align-center">
+								<p>A digital timer</p>
+								<h2>Ardarm the Arduino alarm</h2>
+							</header>
+							<p>Ardarm is an alarm made with an Arduino. The alarm is set and turned of with a potentiometer.
+                                 The time is displayed in a liquid crystal display, and when the alarm goes of 3 LEDs will blink while a piezo plays an alarm noice.
+                                 The alarm can be set with a maximum of 60 min.</p>
+                            <h2>How to make</h2>
+                            <h3>Potentiometer</h3>
+							<p>
+                                
+                                First I set up a potentiometer which i can read from. I pluck it in the breadboard and connect the power and ground pins. 
+                                Then took a longer pin and connect to the A0 port, which i can do analogRead from. In my code I would then set up for the analog read from the potentiometer.
+                                From this analogRead I would map the number into seconds from 0-3600 seconds. This is done with the map function which scales numbers. 
+                            </p>
+                            <p>
+                                In order to change the timer i sat up a variable for holding the last analogRead value. When ever this changes over with an interval over 5, the timer gets a new value.
+                                If statements are also set up to turn of the alarm when the analogRead gives a value of 0. Values described over also control what is to be displayed on the LCD. 
+                            </p>
+                            <h3>LCD</h3>
+                            <p>
+                                I won't go in detail how the LCD is set up, you can see in the Arduino book how to set this up.
+                            </p>
+                            <p>
+                                I will explain the code for what is displayed on the LCD. 3 things can be displayed on screen: the welcome screen, the timer screen, and the alarm screen went of.
+                                When the analogRead reads 0. The screen will display the welcome screen. When the analog read is not 0. A timer will be calculated and a count down will start.
+                                The screen will then display the time to go. When this timer becomes 0, the timer goes of, the display will say the ardarm went of. 
+                            </p>
+                            <h3>Piezo</h3>
+                            <p>
+                                This is the component making the sound when the alarm goes of. For each iteration of the main loop, it will play a sound. This component is connected from port 6 to the piezo,
+                                to the ground in the breadboard. The sound is made with the function tone, which plays a sound upon activating. When potentiometer turns of the alarm the sound will also stop.
+                            </p>
+                            <h3>LEDS</h3>
+                            <p>
+                                All of these are conected independently from port 7, 8, 9 to each of the LEDs, and then to the ground with 220 ohms resistors.
+                                When alarm goes of the LEDs will blink and when the alarm is turned of with the potentiometer, they will stop blinking. 
+                            </p>
+                            <h3>GitHub, videos and images.</h3>
+                            <p> Click here to find the code for this project <a href="https://github.com/Jollokim/digifab.projects/tree/master/Arduino/Ardarm/Ardarm">GITHUB ARDARM</a></p>
+                            <p>
+                                Check out some of the images and videos below of the project!
+                            </p>
+
+                            <video width="320" height="240" controls>
+                                <source src="videos/ardarm_set.mp4" type="video/mp4">
+                              Your browser does not support the video tag.
+                            </video> 
+                            <video width="320" height="240" controls>
+                                <source src="videos/ardarm_går_av.mp4" type="video/mp4">
+                              Your browser does not support the video tag.
+                            </video>
+                            <img src="images/ardarm1.jpg" alt="" width="320" height="240" />
+                            <img src="images/ardarm2.jpg" alt="" width="320" height="240"/>
+                            <img src="images/ardarm3.jpg" alt="" width="320" height="240"/>
+                            <img src="images/ardarm4.jpg" alt="" width="320" height="240"/>
+                            <p>Came across some weird bug with the LCD where it would just display gibberish. But happened rarely and didn't put much into it.</p>
+                        </div>
+					</div>
+				</div>
+			</section>
+
+		<!-- Footer -->
+        <footer id="footer">
+            <!-- <div class="container">
+                <ul class="icons">
+                    <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+                    <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+                    <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+                    <li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+                </ul>
+            </div> -->
+            <div class="copyright">
+                &copy; 2020 Joakim Jensen. All rights reserved.
+                This template has been partially changed.
+                <a href="https://creativecommons.org/licenses/by/3.0/legalcode">Published under Creative Commons Attributtion 3.0</a>
+            </div>
+        </footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE HTML>
+<!--
+    Hielo by TEMPLATED
+    templated.co @templatedco
+    Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+<head>
+    <title>PiSpy - Raspberry Pi</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body class="subpage">
+
+    <!-- Header -->
+    <header id="header">
+        <div class="logo"><a href="index.html">Hielo <span>by TEMPLATED</span></a></div>
+        <a href="#menu">Menu</a>
+    </header>
+
+    <!-- Nav -->
+    <nav id="menu">
+        <ul class="links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="me.html">Me</a></li>
+            <li><a href="digifab_projects.html">Digifab Projects</a></li>
+        </ul>
+    </nav>
+
+    <!-- One -->
+    <section id="One" class="wrapper style3">
+        <div class="inner">
+            <header class="align-center">
+                <p>Raspberry Pi</p>
+                <h2>PiSpy</h2>
+            </header>
+        </div>
+    </section>
+
+    <!-- Two -->
+    <section id="two" class="wrapper style2">
+        <div class="inner">
+            <div class="box">
+                <div class="content">
+                    <header class="align-center">
+                        <p>A spy guard</p>
+                        <h2>PiSpy the sensor, cameraman</h2>
+                    </header>
+                    <p>
+                        PiSpy is an application for detecting intruders. The application uses an ultra sonic sensor to calculate distance between itself and the object it points to.
+                        When this distance becomes less than a constant value, it would mean that something has moved in between it and another object. Meaning a person possible moved into the
+                        sensors view. When this happens a camera will be activated filming for 15 seconds hopefully catching the intruder. The application has a button for starting and pausing the sensor.
+                        Pressing the button while the sensor is of will cause a LED, to turn on for 5 seconds, then it will turn of and the sensor is active. If the sensor is on, and the button is pressed,
+                        the sensor will turn of and the LED will blink 3 times, to indicate the sensor is off.
+                    </p>
+                    <h2>What you need:</h2>
+                    <ul>
+                        <li>Ultrasonic sensor HC-SR04</li>
+                        <li>Raspberry Pi Camera Module V2</li>
+                        <li>6x Male-Female pins</li>
+                        <li>6x 220 Ohm resistors</li>
+                        <li>Button</li>
+                        <li>LED</li>
+                        <li>Raspberry Pi</li>
+
+                    </ul>
+                    <h2>How to make</h2>
+                    <h3>Ultrasonic sensor HC-SR04</h3>
+                    <p>
+                        We are using a Raspberry Pi 3 model B, for this project. First find a 5V and ground pin on your Pi. Connect these to the breadboard + and - respectively, with male female pins.
+                        This will mainly give power for the sensor, and work as ground for other components. Then we want to connect the both of the to the sensors VCC and ground. When we have done this,
+                        we will need to connect the trigger and echo pins of the GPIO in the raspberry pi. Because the GPIO pins of the raspberry pi, can't handle more then 3 volts, without risking permanent
+                        dmg to the Pi we'll need to set uå some resistors. Actually there are resistors that can give the right ammount of resistance need for this project, but because i only had 220 ohm as
+                        my lowest resistor, i choose to set up multiple in sequence to sum to a restance value that was more near what was needed, then setting up 10 K-Ohms resistors. I will link to the
+                        turtorial I used for more spesific and better setup of the resistors and pins to GPIO here here: <a href="https://tutorials-raspberrypi.com/raspberry-pi-ultrasonic-sensor-hc-sr04/">https://tutorials-raspberrypi.com/raspberry-pi-ultrasonic-sensor-hc-sr04/</a>
+                    </p>
+                    <h4>Programming the sensor</h4>
+                    <p>
+                        The turtorialabove was also used to lean more about, how to program sensor. Now in my application I just used gpiozero library, which was alot simpler then the turtorial above.
+                        The above uses RPi.GPIO library, and has the advantage of being able to calc distances above 1 meter. This project does not need more than 1 meter of distance, so thats why I
+                        took the simpler approach of of using gpiozero. The programming is nothing special, tell what GPIO pins to used and you can get the distance from the field "distance" of
+                        the DistanceSensor object. Then program so that when this length is less than hundred recording from the camera will start.
+                    </p>
+                    <h3>Raspberry Pi Camera Module V2</h3>
+                    <p>
+                        The camera is plugged directly into the raspberry pi's camera pluggin. There is written camera right on top of it. When this is conected you need to activated the raspberry pi interface
+                        on the pi itself. This is done in Raspian OS. Go to Raspberry pi configuration -> interface and enable camera, inorder to use it.
+                    </p>
+                    <h4>Programming the camera</h4>
+                    <p>
+                        Some of it has already been spoiled in the above section, but I will also say that, you will need to tell what path to put the video in when you start the recording.
+                        To make things more easy find and see when it happened, I also added the time when the camera starts recording to name of the file.
+                    </p>
+                    <h3>Button and LED</h3>
+                    <p>
+                        The button is used to give input to the Pi of what to do, and the LED functions as a repsonder. The button and LED is also connected to GPIO in order to get input and give output
+                        , respectively.
+                    </p>
+                    <h4>Programming button and LED</h4>
+                    <p>
+                        The gpiozero library makes it very easy to program the button and LED. With the Button object you can easily just tell what pin it used, and what it shall do when pressed and released.
+                        Same goes for the LED which has a LED object, which supports a on and off method which turns LED on and off. The logic behind the programming of this is that a global variable sens_on,
+                        controlls when the sensor is on an off. But it also controlls how the LED will respond when the button is released. In turn the button also changes the sens_on to its opposite. When
+                        sens_on is False, the sensor is off(actually i don't think it ever goes of but its constantly refreshing the distance field to what ever distance it reads, but we are not reading
+                        this field when sens_on is False), when we release the button again now the LED will glow for 5 seconds and then turn off, to indicate the sensor now is on. However if the sens_on
+                        is true the sensor is on, and when the button is released then it will blink 3 times to indicate that the sensor has been turned off, changing the sens_on variable in the process.
+                    </p>
+
+                    <h3>GitHub, videos and images.</h3>
+                    <p> Click here to find the code for this project <a href="https://github.com/Jollokim/digifab.projects/tree/master/RaspberryPi">GITHUB PiSpy</a></p>
+                    <p>
+                        Check out some of the images and videos below of the project!
+                    </p>
+
+                    <video width="320" height="240" controls>
+                        <source src="videos/PiSpy1.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <video width="320" height="240" controls>
+                        <source src="videos/PiSpy2.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <video width="320" height="240" controls>
+                        <source src="videos/PiSpy3.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <img src="images/PiSpyOverview.jpg" alt="" width="320" height="240" />
+                    <img src="images/PiSpyOverview2.jpg" alt="" width="320" height="240" />
+                    <img src="images/PiSpyBreaboard.jpg" alt="" width="320" height="240" />
+                    <img src="images/PiSpySensor.jpg" alt="" width="320" height="240" />
+                    <img src="images/PiSpyRaspberryPi.jpg" alt="" width="320" height="240" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <!-- <div class="container">
+            <ul class="icons">
+                <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+                <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+                <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+                <li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+            </ul>
+        </div> -->
+        <div class="copyright">
+            &copy; 2020 Joakim Jensen. All rights reserved.
+            This template has been partially changed.
+            <a href="https://creativecommons.org/licenses/by/3.0/legalcode">Published under Creative Commons Attributtion 3.0</a>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/skel.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>

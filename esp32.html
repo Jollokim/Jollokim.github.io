@@ -1,0 +1,124 @@
+<!DOCTYPE HTML>
+<!--
+	Hielo by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>ESP32</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="subpage">
+
+		<!-- Header -->
+			<header id="header">
+				<div class="logo"><a href="index.html">Hielo <span>by TEMPLATED</span></a></div>
+				<a href="#menu">Menu</a>
+			</header>
+
+		<!-- Nav -->
+		<nav id="menu">
+			<ul class="links">
+				<li><a href="index.html">Home</a></li>
+				<li><a href="me.html">Me</a></li>
+				<li><a href="digifab_projects.html">Digifab Projects</a></li>
+			</ul>
+		</nav>
+
+		<!-- One -->
+			<section id="One" class="wrapper style3">
+				<div class="inner">
+					<header class="align-center">
+						<p>ESP32</p>
+						<h2>IOT screamer</h2>
+					</header>
+				</div>
+			</section>
+
+		<!-- Two -->
+			<section id="two" class="wrapper style2">
+				<div class="inner">
+					<div class="box">
+						<div class="content">
+							<header class="align-center">
+								<p>Controlling the screamer</p>
+								<h2>ESP32</h2>
+                            </header>
+
+                            <p>In this esp32 project I made a screamer which is remotely controlled. The project does not really have any applications other than scaring people if you place it somewhere
+                                or perhaps waking up people which sleep to long. In this case the esp32 will work as a webserver taking in orders of which frquency to play through a website.
+
+                            </p>
+
+                            <h2>What you need:</h2>
+                            <ul>
+                                <li>esp32</li>
+                                <li>The arduino IDE</li>
+                                <li>Piezo or Buzzer</li>
+                                <li>BreadBoard</li>
+                                <li>Wires</li>
+                            </ul>
+
+                            <h2>How to make</h2>
+                            <h3>Circuit</h3>
+                            <p>Firstly we can start by setting up circuit. Place the esp32 in the breadboard so that we can access all pins without different pins on the esp32 being connected in the breadboard.
+                                Thereafter place the esp32 in the breadboard and connect wire to the each of the different pins of the Piezo. It does not matter whoch way the wires are placed.
+                                One wire will ofcourse be connected to the GND pin on the esp32. The second wire should be connected to one of the GPIO of the esp32. In this case we use the 12th.
+                                Now that we have done this we can go on to the programming.
+                            </p>
+                            <img src="images/esp32_piezo_setup.jpg" alt="esp32 setup" width="30%">
+
+                            <h3>Programming</h3>
+                            <p>The arduino IDE will be needed to be installed. You will need to install the esp32 library in order to program the esp32. When this library is installed you can also 
+                                program other esp32 devices. A simple guide install the library will be linked <a href="https://polluxlabs.net/en/arduino-tutorials-en/programming-your-esp32-with-the-arduino-ide/">here</a>.
+                                When the library and the esp32 model you are using as been choosen, we can now start programming the esp32.
+                            </p>
+                            <p>In order to comminicate with the esp32 over internet you will need i to connect to the internet. For this I used the simple example from this <a href="https://dronebotworkshop.com/esp32-intro/">source</a>
+                                The example used of how to setting up a website that is hosted from the esp32, will be where we can communicate with the esp32 remotely from other devices connected to the same network
+                                as itself. I sat the website up to have a input box and a button. When a number is entered and button is pressed the site is redireceted to the same site but changes the URL giving it the number that was entered.
+                                When the redirect happens the esp32 get a HTTP request, saying that the client(being us on the other site), is asking for that URL. The redirecting is done with some intial javascript code which is also included in the website.
+                                Now we can read on the URL the number which was entered, and make the piezo play a certain frequecy. The pieoze is able to play a frequency from 50-10 000. To make it simple, the site client will enter a number from 1-9 which will be multiplied by 1000
+                                and played by piezo under the controll of the esp32. Code can be found on my <a href="https://github.com/Jollokim/digifab.projects/tree/master/esp32/piezo">GitHub</a>
+                            </p>
+                            <img src="images/esp32_website.jpg" alt="The website hosted by esp32" width="100%">
+
+                            <h3>Testing the project</h3>
+                            <video width="50%" height="300" controls>
+                                <source src="videos/testing_piezo_screamer.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            
+						</div>
+					</div>
+				</div>
+			</section>
+
+		<!-- Footer -->
+		<footer id="footer">
+            <!-- <div class="container">
+                <ul class="icons">
+                    <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+                    <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+                    <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+                    <li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+                </ul>
+            </div> -->
+            <div class="copyright">
+                &copy; 2020 Joakim Jensen. All rights reserved.
+                This template has been partially changed.
+                <a href="https://creativecommons.org/licenses/by/3.0/legalcode">Published under Creative Commons Attributtion 3.0</a>
+            </div>
+        </footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

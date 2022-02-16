@@ -1,0 +1,138 @@
+<!DOCTYPE HTML>
+<!--
+	Hielo by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>Hielo by TEMPLATED</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="subpage">
+
+		<!-- Header -->
+			<header id="header">
+				<div class="logo"><a href="index.html">Hielo <span>by TEMPLATED</span></a></div>
+				<a href="#menu">Menu</a>
+			</header>
+
+		<!-- Nav -->
+		<nav id="menu">
+			<ul class="links">
+				<li><a href="index.html">Home</a></li>
+				<li><a href="me.html">Me</a></li>
+				<li><a href="digifab_projects.html">Digifab Projects</a></li>
+			</ul>
+		</nav>
+
+		<!-- One -->
+			<section id="One" class="wrapper style3">
+				<div class="inner">
+					<header class="align-center">
+						<p>3D-printing</p>
+						<h2>Raspberry Pi case with camera holder</h2>
+					</header>
+				</div>
+			</section>
+
+		<!-- Two -->
+			<section id="two" class="wrapper style2">
+				<div class="inner">
+					<div class="box">
+						<div class="content">
+							<header class="align-center">
+								<h2>3D printing a Raspberry Pi case with camera holder</h2>
+							</header>
+							<h2>Designing in Fusion 360</h2>
+							<p>
+								Designing the case was achieved with Fusion 360. I have already spoken a bit about Fusion 360 in another assignment were I designed a Raspberry Pi case,
+								 which was my initial plan to print. However, after having played around with the Raspberry Pi camera, it fast became apparent that I was going to use this
+								 for my final Digifab project. I decided to throw in an additional twist to the case, which was the camera holder. 
+							</p>
+							<p>
+								To help me design the case I use a virtual 3D model of the Raspberry Pi model B and the camera. These object were placed in fusion 360 and I simply just build my the case
+								around it. These objects were downloaded from the <a href="https://cad.grabcad.com/library#!">GrabCad Community website</a>. I ended up with 2 .stl files for the cover and 
+								the base.
+							</p>
+							<div class="image fit">
+								<img src="images/pi_case_bottom.jpg" alt="case bottom">
+							</div>
+							<div class="image fit">
+								<img src="images/pi_case_top.jpg" alt="case top">
+							</div>
+							<h2>Exporting G-code</h2>
+							<p>
+								Before printing the case, I first needed to compile the .stl files to G-code which the printer uses to print. For compiling the the .stl I used the PrucaSlicer software, I'm therefore also using
+								a Pruca printer for printing. To specific I'm using the Pruca I3 MK3 3D-printer. I could also have used Pruca mini, however, then I would have to print the two components separately because the Pruca mini
+								has a smaller area to print on. I exported G-code with print settings: Print settings: 0.15mm QUALITY, Filament: PETG, innfill: 15%, Supports: Everywhere, Infill: 15%.
+							</p>
+							<div class="image fit">
+								<img src="images/pruca.jpg" alt="pruca">
+							</div>
+							<h2>Printing on the Pruca 3D-printer</h2>
+							<p>
+								Having exported the G-code to a mini sd and put it in the pruca printer, I took of the beding and cleaned it. Cleaning is important to ensure that the filament sticks to the beding, otherwise the print
+								might fail. Having cleaned the beding I placed in it the printer again. Next up was preheating, this was set to preheat for PETG. When preheating was done I selected the G-code for my print
+								and started printing. I watched the first couple of layers just to make sure the print well. Most often when a print fails it will be in first couple of layers. When I saw the first layers went well
+								I left the lab. Later I came back to retrieve the finished product. Again I cleaned the beding.
+							</p>
+							<h2>Result</h2>
+							<p>
+								As can be seen on the image the case is printed with different colors, this happend because under the print the printer used up all the fillament. Luckily for me teaching
+								assistant Katrine was on the lab, so she switched the filament for me, resulting in the cool "Ben 10" look. Katrine was also supervising me in the lab as I printed for the first
+								time.
+							</p>
+							<p>
+								The print was relatively succecfull. The camera fits ok inside of the camera holder, however the window could have been a tiny bit bigger. It's also kind of hard to make the camera stick inside of the
+								camera holder. The bottom case fits very well with Raspberry Pi. I can fit powercable good, I fear though that the USB windows might have been placed a bit to high, so the bottom USB entries
+								are pretty hard to access. All in all the print was ok for a first print.
+							</p>
+							
+								<img src="images/picase1.jpg" alt="Pi case" width=300 height=300>
+							
+							
+								<img src="images/picase2.jpg" alt="Pi case" width=300 height=300>
+							
+							
+								<img src="images/picase3.jpg" alt="Pi case" width=300 height=300>
+							
+							
+								<img src="images/picase4.jpg" alt="Pi case" width=300 height=300>
+							
+							<p>
+								Support was removed before the image was taken.
+							</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+		<!-- Footer -->
+		<footer id="footer">
+            <!-- <div class="container">
+                <ul class="icons">
+                    <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+                    <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+                    <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+                    <li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+                </ul>
+            </div> -->
+            <div class="copyright">
+                &copy; 2020 Joakim Jensen. All rights reserved.
+                This template has been partially changed.
+                <a href="https://creativecommons.org/licenses/by/3.0/legalcode">Published under Creative Commons Attributtion 3.0</a>
+            </div>
+        </footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

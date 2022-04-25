@@ -51,7 +51,7 @@
 							<h2>Introduction to the assignment</h2>
 							<p>
 								During the DigiFab course we have been introduced to a great array of electronics and Digital Fabrication methods. Among electronics we have 
-								been looking at micro controllers such as esp or the Arduino. We were also introduced to Raspberry Pi which I decided to be my 
+								been looking at micro controllers such as esp32 or the Arduino. We were also introduced to Raspberry Pi which I decided to be my 
 								electronic controller of my final project. Among digital fabrications method we have been introduced to small scale fabrication methods such as 
 								vinyl cutting and laser cutting to bigger fabrication methods such as 3D printing and PCB.
 							</p>
@@ -59,33 +59,33 @@
 								For the final project we were required to use atleast one theme from electronic and one from digital fabrication. For my electronic theme I
 								as already mentioned choose the Raspberry Pi as my eletrical component of the project. In particular I choose the Raspberry PI 3 Model B.
 								The Raspberry Pi 3 Model B is a single board computer. It has a around the same size as a credit-card, while having a great array of pins
-								(referred to as GPIO) which you can connect other electronical components which then again can be controlled from the Pi, 
+								(referred to as GPIO) which you can connect to other electronical components which then again can be controlled from the Pi, 
 								by controllings outputs from the pins. I choose the Raspberry Pi because it was in comparison to other component we went through probably the 
 								most powerfull board in terms of just pure power. In addition, the Pi works very similar to a regular PC in the sense that it uses a 
-								operating system with a GUI. The OS is addition Linux based to I was instantly familiar with how to operate the PI. The Pi also supports 
+								operating system with a GUI. The OS is addition Linux based, so I was instantly familiar with how to operate the PI. The Pi also supports 
 								code editors, so I could code directly onto the Pi. The raspberry Pi also allowed me to program in Python which uses packages which I wanted to
 								use in the project, more on this later. The Pi also supported camera use, which is a must for my prject.
 							</p>
 							<p>
 								For my digital fabrication theme I choose 3D printing. I choose 3D printing as my digital fabrication method because of its huge versatility
 								in building different physical components. For 3D printing I used the Pruza 3D printers. I used the Prusa i3 MK3 to build most of my components,
-								components I had to redo I 3D printed with Prusa MINI. The MINI has a smaller platform to print on so, therefore when printing on the MK3
+								components I had to redo I 3D printed with Prusa MINI. The MINI has a smaller platform to print on, therefore when printing on the MK3
 								multiple components were printed at the same time, while the MINI was used to print single components which either were missing or failed
 								in the first print. For filament I used PETG for all printed components. Other software such as Pruza slicer and Fusion 360 was also used
 								to visualize and prepare components before printing.
 							</p>
 							<h2>Introduction to the project</h2>
 							<p>
-								For the final project I decided to build an autonomous nerfgun turret. The turret is follows this tutorial:
+								For the final project I decided to build an autonomous nerfgun turret. The build follows this tutorial:
 								<a href="https://hackaday.io/project/167464-bluetooth-nerf-turret">Bluetooth Nerf turret</a>. However, despite my turret using the 3D object
 								of this tutorial, I've still had to much of my own work in regards to electronics, fabrication and software. The original turret is controlled
-								by a user through bluetooth and independent software. My version, is completely independent in every decision it makes. By using Machine-Learning
+								by a user through bluetooth and independent software. My version is completely independent in every decision it makes. By using Machine-Learning
 								(ML) object detection algorithm to detect people in images the turret will move on its own in order to aim at a person. When the turret
 								has aimed in on a person it will shoot a nerf bullet.  
 							</p>
 							<p>
 								The original tutorial also uses Arduino among other electrical components to controll the turret. Mine however, uses Raspberry Pi, so I've
-								had to a bit of my own adaptation of placement of the Pi in addition to the wiring is also different compared to the original. It also here my
+								had to do a bit of my own adaptation of placement of the Pi in addition to the wiring is also different compared to the original. Its also here my
 								choice of the Pi as my main controller comes in handy. Python supports a great array of ML libraries for doing ML. For my project however,
 								I haven't trained my own model but rather just used a pretrained model, which easily is fit into the Pi.
 							</p>
@@ -93,10 +93,10 @@
 
 							<h2>3D printing components</h2>
 							<p>
-								3D components of the model was retrieved from the tutorial described above. The tutorial had to models of the turret.
+								3D components of the model was retrieved from the tutorial described above. The tutorial had 2 models of the turret.
 								One using the MG90 servo motor and one using the M996R servo. For my project I used the MG90 servo components. Before printing all components,
 								I wanted to get an idea of every component was gonna sit on each other. To get some insight, I used fusion360, all the 3D object retrieved from
-								the tutorial was placed inside of the fusion360 and placed like they would be sitting on each other. Fusion360 there by giving me the broad idea of
+								the tutorial was placed inside of the fusion360 and placed like they would be sitting on each other. Fusion360, there by giving me the broad idea of
 								how I was going to place all the components on each other.
 							</p>
 							<img src="images/final_fusionview.jpg" alt="">
@@ -116,7 +116,7 @@
 							</p>
 							<img src="images/final_bottomplatform.jpg" alt="" width="20%">
 							<p>
-								Next up is putting together the middle connecter component between the leges and the head of the turret. This component will also have a servo
+								Next up is putting together the middle connecter component between the legs and the head of the turret. This component will also have a servo
 								connected to it. This servo controlls the vertical direction (y direction) of the turret. This component is connected directly onto the x-ax
 								servo. Before connecting the middle component with the x-servo, the x-servo was adjusted with a small python script centering the servo.
 								The servo can't swing 360 degrees but only 180. By centering first and placing the connecter to look forward on the x-servo, I ensure
@@ -125,13 +125,13 @@
 							<p>
 								Next up is putting the head together. The head consist of 2 halfs which together creates the barrel and the nerf bullets holder. On the top
 								front of the head is a down pusher. This down push is connected to the head by a M2x20 screw. This screw also helps the two half keeping
-								together. The pushes down the bullets making sure bullets don't get stuck in the holder. In front of the head is a little hook. This hook
+								together. The pusher keeps down the bullets making sure bullets don't get stuck in the holder. In front of the head is a little hook. This hook
 								uses and elastic to keep downward push on the bullets. For my version of the turret this elestic also keeps the camera in place in front of
 								the head. On the backside of the head will the third and last servo be sitting. This servo controlls the shooting mechanism. A little arm
 								is connected to. On the other side of the arm, a wire is pushed though a hole in the arm and into the head of the turret. When this servo
 								starts moving back and forth it will push a nerf bullet to the front of the head. In front of the head sits to DC motors which will shoot
-								the the bullet with high speed, more on this later. After having pushed a bullets forward, the arm will move back. The head extends a little further
-								behind then that of the head, making space for a new bullet be pushed down, when the arm has retracted completely. The shoot-servo is connected to
+								the the bullet with high speed, more on this later. After having pushed a bullet forward, the arm will move back. The head extends a little further
+								behind on the lower side of the head, making space for a new bullet be pushed down, when the arm has retracted completely. The shoot-servo is connected to
 								the head with 2 M2x10 screws, these also helps keeping the two halfs of the head together.
 							</p>
 							<img src="images/final_leftside.jpg" alt="" width="20%">
@@ -174,7 +174,7 @@
 							</p>
 							<p>
 								The second component is the DC motors. I originally was planing to controll when these should roll and not. However, not be an electrician and getting
-								help from the MakerSpace TAs I was adviced to just connect the DC motors to an independent battery. Doing so I couldn't controll the when rolling
+								help from the MakerSpace TAs, I was adviced to just connect the DC motors to an independent battery. Doing so I couldn't controll the when rolling
 								should start with the Pi. This is an issues I really would have liked to fix but was unable to, because of lack of knowledge from myself and might I even say
 								the TAs... However, the main objective of getting the turret to shoot was still achieved.
 							</p>
@@ -210,7 +210,7 @@
 							</p>
 							<p>
 								This algorithm does has some constraints and can be seen in the video below, the algorithm is far from fluent. Despite me using the lightest
-								YOLO-model available, the algorithm still ran extremely slowly on the Raspberry Pi. Raspberry Pi ofcourse not being optimized at all for
+								YOLO-model available, the algorithm still ran extremely slowly on the Raspberry Pi. Raspberry Pi of course not being optimized at all for
 								deep learning models, I've had to a bit of optimization myself. The main optimization being that I set the algorithm to only process every 10th
 								image. However, this also makes the turret quiet jittery in its movement. To counter act the jitter I used another pin_factory, the pigpiod.
 								I'll explain in the "testing yourself" section how to activate this pin-driver. To cut down on jittery I would also make each move the turret would
@@ -221,7 +221,8 @@
 							<p>
 								Testing the turret is quiet easy. Download the digifab code from the final project here. Makes sure you download the right weights and config
 								file from the YOLO model you want to load from this <a href="https://pjreddie.com/darknet/yolo/">site</a>. I recommend the YOLO-tiny as I used.
-								In main.py change the modelConfig and modelWeights variable to the path of your config and weights respectively for YOLO. Then click run and
+								In main.py change the modelConfig and modelWeights variable to the path of your config and weights respectively for YOLO. Open a terminal on the Pi,
+								then write "sudo pigpiod" in the terminal. This activates the pigpiod pin-factory. Then click run and
 								the program will run. Making the roller run make sure to connect the red wire to + and green wire - on a battery.
 								The more powerfull the batteri the faster it will shoot.
 							</p>
